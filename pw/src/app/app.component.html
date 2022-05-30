@@ -1,0 +1,42 @@
+<div class="container is-fluid">
+  <nav class="panel is-primary">
+    <p class="panel-heading">Password Generator</p>
+    <div class="panel-block">
+      <div class="box">
+        <form (keydown.enter)="$event.preventDefault()">
+          <div class="field">
+            <label class="label">Enter length</label>
+            <input type="text" class="input" (input)="onChangeLength($event)">
+          </div>
+
+          <div class="field">
+            <label class="label">Use Letters
+              <input type="checkbox" class="checkbox" (change)="onChangeUseLetters()">
+            </label>
+          </div>
+
+          <div class="field">
+            <label class="label">Use Numbers
+              <input type="checkbox" class="checkbox" (change)="onChangeUseNumbers()">
+            </label>
+          </div>
+
+          <div class="field">
+            <label class="label">Use Symbols
+              <input type="checkbox"  class="checkbox"(change)="onChangeUseSymbols()">
+            </label>
+          </div>
+
+          <div class="field">
+            <button (click)="onButtonClick()" class="button is-primary" [disabled]="disableGenerate()">Generate</button>
+          </div>
+
+          <div class="field" *ngIf="password">
+            <label class="label">Your Password</label>
+            <input type="text" class="input" [value]="password">
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
